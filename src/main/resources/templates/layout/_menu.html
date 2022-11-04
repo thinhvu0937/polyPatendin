@@ -1,0 +1,52 @@
+<div xmlns:th="http://www.thymeleaf.org">
+
+<div class="container-fluid">
+			<ul class="nav navbar-nav">
+	<!--  			<th:block th:if="${#request.remoteUser}">
+					<li><a th:href="@{/security/logoff}">Sign Out</a></li>
+					<li><a th:href="@{/order/list}">Your Order</a></li>
+ 					<li th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
+						<a th:href="@{/admin/home/index}">Administration</a>  
+					</li>	
+				</th:block>
+				<th:block th:unless="${#request.remoteUser}">
+
+				</th:block>
+			</ul>
+			<ul th:if="${#request.remoteUser}" class="nav navbar-nav navbar-right">
+				<li><a href="#">Hello [[${#request.remoteUser}]] </a></li>
+			</ul>
+		</div>
+	</nav>-->
+</div> 
+<header>
+    <div class="logo">
+      <img src="/assets/images/LOGO.png">
+    </div>
+    <div class="menu">
+        <li><a th:href="@{/}">Trang chủ</a></li>
+        <li><a th:href="@{/order/khuyenmai}">Khuyến mãi</a></li>
+        <li><a th:href="@{/order/tintuc}">Tin Tức</a></li>
+        <li><a th:href="@{/order/congthuc}">Công thức</a></li>
+        <li><a th:href="@{/order/lienhe}">Liên hệ</a></li>
+
+    </div>    
+    <div class="others">
+
+        <form action="/product/list" class="ng-pristine ng-valid">
+        	<input placeholder="Tìm kiếm" th:value="${param.search}" name="search"> <i class="fas fa-search" aria-hidden="true"></i>
+        </form>
+	
+        <div class="menu_1">
+            <li><a class="fa fa-user" href="" aria-hidden="true"></a>
+	        <ul class="sub-menu">
+	            <li><a th:href="@{/security/login/form}">Đăng nhập</a></li>
+	            <li><a th:href="@{/security/dangki}">Đăng ký</a></li>
+	            <li><a  th:href="@{/security/logoff}">Đăng xuất</a></li>
+	            <li><a  th:href="@{/order/list}">Đơn hàng</a></li>
+	            <li><a  th:href="@{/security/change_password}">Đổi mật khẩu</a></li>
+            </ul>
+	</li>
+    </div>
+    </div>
+    </header>

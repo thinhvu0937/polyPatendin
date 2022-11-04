@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimun-scale=1.0, maxium-scale=1.0, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/admin.css"/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+ <script src="https://kit.fontawesome.com/1147679ae7.js" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css"/>
+     	
+     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+		<script src="/assets/js/main.js"></script>
+</head>
+<body  class="container" ng-app="admin-app">
+	<input type="checkbox" id="menu-toggle">
+	<div class="sidebar">
+		<div class="brand">
+			<span class="fas fa-glass-cheers"></span>
+			<h2>FPOLY BARTENDING</h2>
+		</div>
+		<div class="sidemenu">
+			<div class="side-user">
+        <div class="side-img" style="background-image:
+            url(/assets/images/admin.png)"></div>
+				<div class="user">
+					<small>Nhân viên</small>
+					<p>Nguyên liệu pha chế</p>
+				</div>
+		</div>
+		
+		<ul>
+			<li>
+				<a href="#!tongquan">
+					<span class="fas fa-home"></span>
+					<span>Overview</span> 
+				</a>
+			</li>
+			<li>
+				<a href="#!taikhoan">
+					<span class="fas fa-child"></span>
+					<span>Account</span> 
+				</a>
+			</li>
+
+			<li>
+				<a href="#!donhang">
+					<span class="fas fa-file-invoice"></span>
+					<span>Order</span> 
+				</a>
+			</li>
+			<li>
+				<a href="#!khohang">
+					<span class="fas fa-warehouse"></span>
+					<span>Product</span> 
+				</a>
+			</li>
+			<li>
+				<a href="#!congthuc">
+					<span class="fas fa-book-open"></span>
+					<span>Recipe</span> 
+				</a>
+			</li>
+			<li>
+				<a href="#!tintuc">
+					<span class="far fa-newspaper"></span>
+					<span>News</span> 
+				</a>
+			</li>
+			<li>
+				<a href="#!khuyenmai">
+					<span class="fas fa-percent"></span>
+					<span>Promotion</span> 
+				</a>
+			</li>
+			<li>
+				<a href="#!lienhe">
+					<span class="fas fa-headset"></span>
+					<span>Contact</span> 
+				</a>
+			</li>
+			<li>
+				<a href="#!thongke">
+					<span class="fas fa-chart-bar"></span>
+					<span>Statistical</span> 
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<span class="fas fa-sign-in-alt"></span>
+					<span>Log out</span> 
+				</a>
+			</li>																									
+		</ul>
+	 	</div>
+	 </div>	 	
+	<div class="main-content">
+		<header>
+			<label for="menu-toggle" class="menu-toggler">
+			<span class="fas fa-bars"></span>
+			</label>
+			<div class="search">
+				<span class="fa fa-search"></span>
+				<input type="search" placeholder="Enter keyword">
+				</div>
+				<div class="head-icons">
+					<span class="far fa-bell"></span>
+				</div>
+		</header>
+		
+		  <article >
+    	<div class="ng-view"></div>
+ 		  </article>
+	</div>
+	
+
+ <!--  <article class="article">
+    	<div th:replace="${main}"></div>
+ 	</article> -->	
+
+	<footer>
+		<p>muốn ghi gì thì ghi</p>
+	</footer>
+	
+	<script src="/assets/admin/admin-app.js"></script>
+    <script src="/assets/admin/product/product-ctrl.js"></script>
+    <script src="/assets/admin/authority/authority-ctrl.js"></script>
+
+</body>
+
+</html>

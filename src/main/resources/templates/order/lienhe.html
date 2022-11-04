@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<body>
+<main>	
+
+<div style="text-align: center;">
+    <div style="background-color: darkred; height: 70px; margin: 20px;">
+    <h1 style="color: white; padding: 15px;">Liên hệ với FPOLY BARTENDING MATERIALS</h1>
+    </div>   
+</div>
+<div style="text-align: center;">
+<div   style="text-align: center; padding: 25px 350px ;/*ĐÂY*/ ">
+<div style="width: 600px;/*ĐÂY*/">
+    <h4 style="padding: 0 0 20px;">Vui lòng điền các thông tin liên hệ, FPOLY BARTENDING MATERIALS
+        sẽ liên hệ và giải đáp các thắc mắc của bạn trong thời gian sớm nhất.</h4>
+<form th:action="@{/save}" th:object="${lh}" method="post" >    
+    <input th:field="*{name}" class="inputlienhe" placeholder="HỌ TÊN" name="username" pattern="[a-zA-Z\s\p{L}]+" title="Vui lòng nhập đúng định dạng họ tên" required>
+    <span id="username_error"></span>
+    <input th:field="*{sDT}" class="inputlienhe" placeholder="SỐ ĐIỆN THOẠI" pattern="(\+84|0)\d{9}" title="Vui lòng nhập đúng định dạng số điện thoại 10 chữ số" required>
+    <input th:field="*{email}" class="inputlienhe" type="email" placeholder="EMAIL" id="mail" name="mail" required>
+    <span class="error" aria-live="polite"></span>
+    <textarea th:field="*{noiDung}" class="inputlienhe" placeholder="VUI LÒNG NHẬP NỘI DUNG LIÊN HỆ" required></textarea>
+    <button class="buttonlienhe" type="submit">Gửi</button>
+</form>
+ </div>   
+</div>
+</div>
+</main>
+</body>
+</html>
+

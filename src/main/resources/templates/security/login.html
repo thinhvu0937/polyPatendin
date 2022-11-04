@@ -1,0 +1,43 @@
+<div xmlns:th="http://www.thymeleaf.org"
+th:replace="~{/layout/index :: dynamic(~{::main})}">
+<main >
+<div style=" width:100% ;">
+	<form th:action="@{/security/login}" method="post" style=" width: 650px; margin:0px 0px 0px 340px;" >
+        <div class="panel panel-primary">
+            <div class="panel-heading" style="background-color: rgb(172, 0, 30);">SIGN IN</div>
+           
+            <div class="panel-body">
+                <div class="form-group">
+                    <div>Username:</div>
+                    <input name="username" class="form-control" required pattern="[a-zA-Z0-9\s\p{L}]+" title="Vui lòng không nhập ký tự đặc biệt">
+                </div>
+                <div class="form-group">
+                    <div>Password:</div>
+                    <input name="password" type="password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <div class="form-control">
+                        <label calss="checkbox-inline">
+                            <input type="checkbox" name="remember-me">Remember me?
+                        </label>
+                    </div><br>
+                    
+                    
+                 <div style="margin:0px 500px; width: 100%;">
+                        <label calss="checkbox-inline" ><a href="/forgot_password">Forgot password?</a>
+                        </label>
+                 </div> 
+                </div>
+            </div>
+            <div class="panel-footer text-right" >
+                <i class="pull-left text-danger" th:text="${message}"></i>
+                
+                <button class="btn btn-success">LOGIN</button>
+            </div>
+           	
+        </div>
+    </form>
+    </div>
+</main>
+</div>
+

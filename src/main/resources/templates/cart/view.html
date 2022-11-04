@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<main>
+		<div class="panel panel-primary" th:fragment="shopping-cart">
+			<div class="panel-heading" style="background-color: #8B0000;">SHOPPING CART</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Price</th>
+						<th>Discount</th>
+						<th>Quantity</th>
+						<th>Amount</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in cart.items">
+						<td>{{item.id}}</td>
+						<td>{{item.name}}</td>
+						<td>{{item.price | number:2}}</td>
+						<td>{{item.discount}}%</td>
+						<td><input ng-change="cart.saveToLocalStorage()"
+							 ng-model="item.qty" type="number" min="1" style="width: 100%;" pattern="[0-9]+" required></td>
+						<td>${{item.qty*item.price-(item.qty*item.price * item.discount/100) | number:2}}</td>
+						<td>
+							<button ng-click="cart.remove(item.id)" class="btn btn-sm btn-danger">
+								<i class="glyphicon glyphicon-trash"></i>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<form action="/cart/view" method="get">
+			<p>Total:  <input  readonly  name= "tongtien" value="${{cart.amout| number:2}}"/> </p>
+			</form>
+			<div class="panel-footer">
+				<button ng-click="cart.clear()" class="btn btn-danger">
+					<i class="glyphicon glyphicon-trash"></i> Clear
+				</button>
+				<a th:href="@{/order/checkout}" class="btn btn-primary">
+					<i class="glyphicon glyphicon-hand-right"></i> Checkout
+				</a>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

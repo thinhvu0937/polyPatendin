@@ -1,0 +1,12 @@
+<div xmlns:th="http://www.thymeleaf.org" >
+<div class="panel panel-primary">
+	<div class="panel-heading" style="background-color: rgb(203, 3, 48);">
+		<b class=" glyphicon glyphicon-briefcase"></b> DANH MỤC 
+	</div>
+	<div class="list-group">
+		<a th:each="c:${cates}" th:href="@{|/product/list?cid=${c.id}|}"
+		class="list-group-item" th:text="${c.name}"></a>	
+		
+	</div>
+</div>
+</div>

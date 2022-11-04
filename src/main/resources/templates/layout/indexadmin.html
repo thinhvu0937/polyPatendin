@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ th:fragment="admin(main)">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimun-scale=1.0, maxium-scale=1.0, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/admin.css"/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+ <script src="https://kit.fontawesome.com/1147679ae7.js" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css"/>
+     	
+     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+		<script src="/assets/js/main.js"></script>
+		
+</head>
+<style>
+#dropdown{
+width:300px;
+}
+#dropdown li{
+line-height:30px;
+margin:2px;
+list-style:none;
+}
+#dropdown li a{
+text-decoration:none;
+margin-left:10px;
+}
+#dropdown ul{
+display:none;
+}
+#dropdown li ul{
+margin-left:50px;
+}
+.chu{
+margin-left:20px;/*đây*/
+}
+.chu1{
+margin-left:5px;/*đây*/
+}
+</style>
+<body  class="container" ng-app="product-ctrl">
+	<input type="checkbox" id="menu-toggle">
+	<div class="sidebar">
+		<div class="brand">
+			<span class="fas fa-glass-cheers"></span>
+			<h2>FPOLY BARTENDING</h2>
+		</div>
+		<div class="sidemenu">
+			<div class="side-user">
+        <div class="side-img" style="background-image:
+            url(/assets/images/TAI.JPG)"></div>
+				<div class="user">
+					<small>Nhân viên</small>
+					<p>Nguyên liệu pha chế</p>
+				</div>
+		</div>
+		
+		<ul id="dropdown">
+			<li>
+				<a th:href="@{/api/tonghop}">
+					<span class="fas fa-home"></span>
+					<span>Statistical</span> 
+				</a>
+			</li>
+			<li>
+			<a href="#"><span class="fas fa-child" style="width:30px;"></span><span class="chu">Account</span></a>
+                <ul  >
+                    <li><a th:href="@{/account/form}"><span class="fas fa-pencil-alt" style="width:30px;"></span><span class="chu1">Form add</span></a></li>
+                    <li><a th:href="@{/account/table}"><span class="far fa-list-alt" style="width:30px;"></span><span class="chu1">Table</span></a></li>
+                </ul>
+			</li>
+			
+			<li>
+			<a href="#"><span class="fas fa-warehouse" style="width:30px;"></span><span class="chu">Products</span></a>
+                <ul  >
+                    <li><a th:href="@{/product/form}"><span class="fas fa-pencil-alt" style="width:30px;"></span><span class="chu1">Form add</span></a></li>
+                    <li><a th:href="@{/product/table}"><span class="far fa-list-alt" style="width:30px;"></span><span class="chu1">Table</span></a></li>
+                </ul>
+			</li>
+
+
+			<li>
+			<a href="#"><span class="fas fa-book-open" style="width:30px;"></span><span class="chu">Recipe</span></a>
+                <ul  >
+                    <li><a th:href="@{/recipe/form}">Form add</a></li>
+                    <li><a th:href="@{/recipe/table}">Table</a></li>
+                </ul>
+			</li>
+			
+			<!-- <li>
+			<a href="#"><span class="far fa-newspaper" style="width:30px;"></span><span class="chu">Product</span></a>
+                <ul  >
+                    <li><a th:href="@{/produstadmin/_table.html}"></a></li>
+                    <li><a th:href="@{/produstadmin/_table.html}">Table</a></li>
+                </ul>
+			</li> -->
+			
+			<li>
+			<a href="#"><span class="far fa-newspaper" style="width:30px;"></span><span class="chu">News</span></a>
+                <ul  >
+                    <li><a th:href="@{/news/form}">Form add</a></li>
+                    <li><a th:href="@{/news/table}">Table</a></li>
+                </ul>
+			</li>
+		
+			<li>
+			<a href="#"><span class="fas fa-archive" style="width:30px;"></span><span class="chu">Category</span></a>
+                <ul  >
+                    <li><a th:href="@{/category/form}">Form add</a></li>
+                    <li><a th:href="@{/category/table}">Table</a></li>
+                </ul>
+			</li>
+			<li>
+			<a href="#"><span class="fas fa-headset" style="width:30px;"></span><span class="chu">Contact</span></a>
+                <ul  >
+                    <li><a th:href="@{/contact/form}">Form add</a></li>
+                    <li><a th:href="@{/contact/table}">Table</a></li>
+                </ul>
+			</li>
+			
+			<li>
+				<a th:href="@{/orderadmin/table}">
+					<span class="fas fa-child"></span>
+					<span>Order</span> 
+				</a>
+			</li>
+			
+			<li>
+				<a th:href="@{/security/logoff}">
+					<span class="fas fa-sign-in-alt"></span>
+					<span >Log out</span> 
+				</a>
+			</li>																									
+		</ul>
+	 	</div>
+	 </div>	 	
+	<div class="main-content">
+		<header>
+			<label for="menu-toggle" class="menu-toggler">
+			<span class="fas fa-bars"></span>
+			</label>
+			
+				<div class="head-icons">
+					<span class="far fa-bell"></span>
+				</div>
+		</header>
+		
+		  <article >
+    	<div th:replace="${main}"></div>
+ 		  </article>
+	</div>
+
+	<footer>
+		<p> FPT Polytechnic &copy; 2021.All rights reserved.</p>
+	</footer>
+		<script src="/assets/js/product-ctrl.js"></script>
+    <script src="/assets/admin/authority/authority-ctrl.js"></script>
+	<script type="text/javascript">
+	//js của menu
+	var menu_c = document.querySelectorAll("#dropdown > li");
+	for(var i=0;i<menu_c.length;i++){
+		menu_c[i].addEventListener('click',function(){
+			var menu = document.querySelectorAll("#dropdown > li > ul");
+			for(var j=0; j<menu.length; j++){
+				menu[j].style.display="none";
+			}
+			this.children[1].style.display="block";
+		})
+	}
+	</script>
+
+</body>
+
+</html>

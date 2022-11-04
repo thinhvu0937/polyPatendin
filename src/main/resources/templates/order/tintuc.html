@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<body>
+<main>
+<form action="#">	
+<section class="congthuc">
+    <div class="container" style="width: 900px; ">
+    <div style="background-color: darkred; height:50px ;width: 830px;display:table">
+        <b style="text-align:center ; color:white; "> <h1 class="h1-style">Tin tức nổi bật</h1></b>
+        </div>
+        <br><br>
+        <div class="ct-content row">
+            <div th:each="tt:${page.content}" class="ct-content-item row">
+                <div class="ct-content-item-img">
+                    <img th:src="@{|/assets/images/${tt.image}|}">
+                </div>
+                <div class="ct-content-item-text">
+                    <h3 style="color:red;">[[${tt.Title}]]</h3>
+                    
+                    <div><p><span th:text="${tt.noiDung.substring(0,118)}"></span>...</p></div>
+                    <a th:href="@{|/order/tintuc/detail/${tt.id}|}" class="btn" style="background-color:#8B0000; color: white;" >Xem ngay>></a><!--th:href="@{|/.../${tt.id của tin tức}|" viết code truyền vào id của tintuc và chuyển trang-->
+                </div>
+                
+            </div>
+           
+
+<div style="text-align: center; width: 830px; ">
+  <ul class="pagination" >
+    <li class="page-item" th:if="${page.number > 0}">
+      <a class="page-link" th:href="@{|/order/tintuc?number=${page.number - 1}|}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li th:each="index: ${#numbers.sequence(0, page.totalPages-1)}">
+    	<a th:href="@{|/order/tintuc?number=${index}|}" th:text="${index + 1}">
+      	</a>
+    </li>
+
+    <li class="page-item" th:if="${page.number < page.totalPages - 1}">
+      <a class="page-link" th:href="@{|/order/tintuc?number=${page.number + 1}|}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+  </div>
+	</div>
+</div>
+</section>
+</form>
+</main>
+</body>
+</html>

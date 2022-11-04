@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<main th:object="${item}" >
+	<div  class="row">
+	<aside class="col-sm-9" >
+		<div class="row" style="margin:0px 75px;">
+			<div class="panel panel-primary">
+				<div class="panel-body text-center">
+					<img style="height:400px; width:400px;"  th:src="@{|/assets/images/*{image}|}">
+				</div>
+			</div>
+			<div class="panel panel-primary" style="height:450px; width:400px;">
+				<div >
+					<ul>
+						<div class="panel-heading" style="background-color: rgb(151, 0, 27);">
+						<h4 style="color:white;"><strong><li th:text="*{name}"></li></strong></h4></div>
+						<label class="row" style="margin:0px 3px;">Giá: <li th:text="*{price}"></li></label>
+						<label class="row" style="margin:0px 3px;">Ngày: <li th:text="*{Createdate}"></li></label>
+						<label class="row" style="margin:0px 3px;">Loại:<li th:text="*{category.name}"></li></label>
+						<h5 class="row" style="margin:0px 3px;"><b>Mô tả:</b><li style="color:black;" th:text="*{description}"></li></h5>
+					</ul>
+				</div>
+				<div class="panel panel-footer text-right" style="bottom: 0px;" >
+					<button class="btn btn-success" >
+						<i class="glyphicon glyphicon-shopping-cart"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+		</aside>
+		<article class="col-sm-3">
+		<div class="hcl" style="width: 250px;">
+			<div class="panel panel-primary">
+				<div class="panel-heading" style="background-color: rgb(151, 0, 27);">HÀNG CÙNG LOẠI</div>
+				<div class="panel-body">
+					<ul>
+						<li th:each="p :*{category.products}">
+							<a th:href="@{|/product/detail/${p.id}|}" th:text="${p.name}"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		</article>
+	</div>
+	</main>
+</body>
+</html>

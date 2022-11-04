@@ -1,0 +1,649 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+.space-between {
+    justify-content: space-between;
+}
+.container{
+	max-width: 1200px;
+    margin: auto;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right:0px;/*đây*/
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 50px;
+    height: 95px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background: rgba(255, 255, 255, 1);
+}
+header:hover{
+    background: rgba(255, 255, 255, 1);
+}
+
+.logo{
+    flex: 1;
+}
+.menu{
+    flex: 3;
+    display: flex;
+}
+.menu > li{
+    padding: 0 12px;
+    position: relative;
+}
+.menu > li:hover .sub-menu{
+    visibility: visible;
+    top:30px;
+}
+.menu li a{
+    font-size: 16px;
+    font-weight: bold!important;
+    display: block;
+    line-height: 20px;
+}
+.others{
+    flex: 1;
+    display: flex;
+}
+.others > ul{
+	display: flex;
+    height: 100%;
+}
+.others > li{
+    padding: 0 12px;
+}
+.others > li:first-child {
+    position: relative;
+}
+.others > li:first-child input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #333;
+    background: transparent;
+    outline: none;
+}
+.others > li:first-child i {
+    position: absolute;
+    right: 10px;
+}
+.Slider{
+    padding-bottom: 30px;
+    border-bottom: 2px solid #000;
+    overflow: hidden;
+    
+}
+
+.aspect-ratio-169{
+    display: block;
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.aspect-ratio-169 img{
+    position: absolute;
+    width: 104%;
+    height: 156%;
+    top: -241px;
+    left: -39px;
+}
+.header-text {
+    position: absolute;
+    top: 9%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 900px;
+    min-width: 300px;
+    text-align: center;
+   
+}
+.header-text h1 {
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+.header-text p {
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    font-size: 16px;
+}
+.header-text button {
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color:#8B0000;
+    border: none;
+    cursor: pointer;
+    color: #FFF;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+.header-text button:hover {
+    background-color: var(--main-color);
+}
+footer {
+    background-color: #8B0000;
+    margin-top: 100px;
+    padding: 50px 0 10px;
+}
+footer p {
+    color: white;
+}
+.footer-content {
+    justify-content: space-between;
+}
+.footer-content h3 {
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+}
+.footer-content p {
+    margin-bottom: 6px;
+}
+.footer-content-social {
+    text-align: center;
+    padding: 50px 0 20px;
+}
+.footer-content-social i {
+    font-size: 20px;
+    margin-right: 12px;
+    cursor: pointer;
+    color: white;
+}
+.footer-copyright {
+    text-align: center;
+    color: white;
+}
+.footer-img {
+    text-align: center;
+}
+.footer-img img {
+    width: 150px;
+}
+
+/* css cho trang congthuc */
+congthuc {
+    padding: 100px 0;
+}
+.ct-content-item-img {
+    width: 40%;
+    height: 350px;
+    
+}
+.ct-content-item-img  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    
+}
+.ct-content-item-text {
+    width: 50%;
+    padding: 20px 30px 0 50px;
+    
+}
+.ct-content-item-text h2 {
+    font-family: var(--subtext);
+    font-weight: normal;
+    color: var(--main-color);
+	    
+}
+.ct-content-item-text p {
+    font-size: 18px;
+    margin: 20px 0;
+    font-family: var(--subtext);
+        
+}
+.ct-content-item {
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    margin-bottom: 16px;
+	width: 100%;/* sửa ở đây*/
+}
+.ct-content-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+
+.inputlienhe{
+    width: 400px;
+    height: 60px;
+    margin: 20px;
+    
+}
+
+.buttonlienhe{
+    background-color: #8B0000;
+    color: white;
+    width: 150px;
+    height: 40px;
+    margin: 20px;    
+}
+
+/*..........khuyenmai...........*/
+.product-km-content {
+    justify-content: space-between;
+    margin-right: -23vmax;
+    margin-left: 10vmax;
+}
+.product-km-content-item {
+    width: 33%;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px rgba(221, 221, 221, 0.5);
+    margin-bottom: 20px;
+}
+.product-km-content-item-img {
+ position: relative;
+ overflow: hidden;
+ cursor: pointer;
+}
+.product-km-content-item:hover h1 a {
+    color: #c90202;
+}
+.product-km-content-item-img::before {
+    position: absolute;
+    display: block;
+    content: "Sale";
+    height: 20px;
+    width: 150px;
+    background-color: #c90202;
+    color: #fff;
+    left: -40px;
+    top: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    transform: rotate(-45deg);
+}
+.product-km-content-item-img::after {
+    position: absolute;
+    display: block;
+    content: "Mua ngay kẻo lỡ";
+    height: 20px;
+    width: 100px;
+    background-color: #c90202;
+    border-radius: 2px;
+    color: #ffffff;
+    right: 10px;
+    top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 12px;
+     line-height: 20px;
+   
+}
+.product-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top,rgba(0,0,0,0.5),rgba(225,225,225,0.1));
+    z-index: 0;
+    top: 0;
+    left: 0;
+}
+.product-km-content-item-img p {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    color: #fff;
+    z-index: 1;
+}
+.product-km-content-item-img img {
+    width: 100%;
+   
+}
+.product-km-content-item-text {
+    padding: 20px 12px;
+}
+.product-km-content-item-text h1 a {
+    font-size: 22px;
+    color: #484848;
+    transition: all 0.3s ease;
+}
+.product-km-content-item-text li {
+    list-style: none;
+    display: flex;
+    margin-bottom: 6px;
+    align-items: center;
+}
+.product-km-content-item-text li:first-child i {
+    color: #FFC662;
+    font-size: 12px;
+}
+.product-km-content-item-text li:nth-child(3) i {
+    color: #c90202;
+    font-size: 12px;
+    margin-right: 12px;
+    width: 10px;
+}
+.product-km-content-item-text li:nth-child(4) i {
+    color: #c90202;
+    font-size: 12px;
+    margin-right: 12px;
+    width: 10px;
+}
+.product-km-content-item-text  p {
+    color: #5D6475;
+    
+}
+.product-km-top > h1 {
+    color: #484848;
+    text-align:end;
+    margin-right:50px;
+}
+.product-km-top > p {
+    color: #484848;
+    text-align:end;
+    margin-right:10px;
+}
+.km-pagination {
+    display: inline-block;
+    padding-left: 600px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+/* ------------------Tin tức kmai(info)-------------------- */
+.info{
+    padding: 20px 0;
+	
+}
+.info > h1 {
+    font-family: var(--main-text-font);
+    margin-bottom: 30px;
+    color: #333333;
+    text-align: center;
+}
+.info-items {
+    justify-content: space-between;
+    width: 900px;
+    margin: 10px 10px;
+}
+.info-item {
+    width: 22%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+.info-item h1{
+    font-family: var(--main-text-font);
+    font-size: 18px;
+}
+.info-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.info-item:hover img{
+    transform: scale(1.03);
+}
+
+.info-item p {
+    font-family: var(--main-text-font);
+    color: #333333;
+}
+/* ------------------Bộ lọc-------------------- */
+.cartegory-right {
+    width: 80%;
+}
+.cartegory-right-top-item:first-child {
+    flex: 2;
+    font-size: 16px;
+    font-family: var(--main-text-font);
+    font-weight: bold;
+
+}
+.cartegory-right-top-item{
+    flex: 1;
+    padding: 0 12px;
+}
+.cartegory-right-top-item button {
+    width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffff;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+}
+.cartegory-right-top-item select {
+    width: 120%;
+    margin-left:140px;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffff;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+}
+
+.menu_1{
+    flex: 3;
+    display: flex;
+}
+.menu_1 > li{
+    padding: 0 12px;
+    position: relative;
+    
+}
+.menu_1 > li:hover .sub-menu{
+    visibility: visible;
+    top:30px;
+    right: -20px;/*đây*/
+}
+.sub-menu{
+    position: absolute;
+    width: 130px;
+    border: 5px solid #800000;
+    padding: 10px 0 10px 20px;
+    visibility: hidden;
+    top:50px;
+    transition: 0.3s;
+    background: #fff;
+    right: -20px;/*đây*/
+}
+
+.sub-menu ul{
+    padding-left: 450px;
+}
+.sub-menu ul a{
+    font-weight: normal !important;
+    font-size: 12px!important;
+
+}    
+
+
+/*cthucchitiet*/
+.Dmenu{ 
+		padding: 0;
+		margin: 5px;
+		list-style-type: circle;
+		border-radius: 3px;
+		box-shadow: 0 0 5px  #FF9966;
+		text-align:left; }
+.Dmenu a{ 
+		display: block;
+		border-bottom: 1px dotted  #FFCC33;
+		text-decoration: none;
+		line-height: 40px; }
+.Dmenu a:hover{ 
+		font-weight: bold;
+		color: #009;
+		background-color:#F96; }
+
+#left .menu_left ul li{
+	list-style:none;}
+	
+ #left .menu_left ul li a{
+	display: block;
+	text-decoration:none;
+	line-height:32px;
+	border-bottom:1px solid #ccc;
+}
+#left .menu_left h3{
+	background:#c90202;
+	height:50px;
+	margin-top:0px;
+	font-size:16px;	
+	line-height:50px;
+	color:#FFF;
+	text-indent:60px;
+	border-radius:5px;
+	left:10px;
+}
+#left .menu_left ul{
+	margin: 5px;
+	padding: 0px;
+	border: 1px solid #ccc;
+	border-radius:5px;
+}
+ #left .menu_left ul li a:hover{
+	color:orange;
+}
+
+#left .menus ul li{
+	list-style:none;}
+	
+#left .menus ul li a{
+	display: block;
+	text-decoration:none;
+	line-height:32px;
+}
+#left .menus h3{
+	background:orange;
+	height:50px;
+	margin-top:10px;
+	font-size:16px;	
+	line-height:50px;
+	color:#FFF;
+	text-indent:80px;
+	border-radius:5px;
+}
+#left .menus ul li a:hover{
+	color:orange;
+}
+.container >aside{
+	width:22%;
+	float:right;
+	background-color:white;
+	margin-right:-85px;
+}
+.container>article{
+	min-height:1400px;
+	width:78%;
+	background-color:white;
+	float:left;
+}
+
+
+
+
+
+
+* {box-sizing:border-box}
+/* thiết lập style cho slideshow container */
+ .slideshow-container {
+   max-width: 1000px;
+   position: relative;
+   margin: auto;
+ }
+/* ẩn hình ảnh cho phần tử slideshow */
+ .mySlides {
+   display: none;
+ }
+/* thiết kế nút mũi tên*/
+ .prev, .next {
+   cursor: pointer;
+   position: absolute;
+   top: 50%;
+   width: auto;
+   margin-top: -22px;
+   padding: 16px;
+   color: white;
+   font-weight: bold;
+   font-size: 18px;
+   transition: 0.6s ease;
+   border-radius: 0 3px 3px 0;
+   user-select: none;
+ }
+/* thiết kế nút mũi tên next nằm phía bên phải */
+ .next {
+   right: 0;
+   border-radius: 3px 0 0 3px;
+ }
+/* hiệu ứng thay đổi background khi hover vào nút mũi tên*/
+ .prev:hover, .next:hover {
+   background-color: rgba(0,0,0,0.8);
+ }
+/* Thiết lập style cho nội dung của mỗi phần tử slideshow */
+ .text {
+   color: #f2f2f2;
+   font-size: 15px;
+   padding: 8px 12px;
+   position: absolute;
+   bottom: 8px;
+   width: 100%;
+   text-align: center;
+ }
+/* Thiết lập style cho số hiển thị của phần tử */
+ .numbertext {
+   color: #f2f2f2;
+   font-size: 12px;
+   padding: 8px 12px;
+   position: absolute;
+   top: 0;
+ }
+/* thiết lập style  nút tròn điều khiển*/
+ .dot {
+   cursor: pointer;
+   height: 15px;
+   width: 15px;
+   margin: 0 2px;
+   background-color: #bbb;
+   border-radius: 50%;
+   display: inline-block;
+   transition: background-color 0.6s ease;
+ }
+.active, .dot:hover {
+   background-color: #717171;
+ }
+/* tạo hiệu ứng chuyển động fade */
+ .fade {
+   -webkit-animation-name: fade;
+   -webkit-animation-duration: 1.5s;
+   animation-name: fade;
+   animation-duration: 1.5s;
+ }
+@-webkit-keyframes fade {
+   from {opacity: .4}
+   to {opacity: 1}
+ }
+@keyframes fade {
+   from {opacity: .4}
+   to {opacity: 1}
+ }
+ 
+

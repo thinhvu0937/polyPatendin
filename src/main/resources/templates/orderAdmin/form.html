@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/indexadmin :: admin(~{::main})}">
+<style>
+.bang {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+.col-6 {
+	float: left;
+	width: 45%;
+	margin-left: 50px;
+}
+
+.col-4 {
+	float: left;
+	width: 30%;
+	margin-left: 50px;
+}
+
+.col-5 {
+	float: left;
+	width: 20%;
+	margin-left: 50px;
+	height: 70px;
+}
+
+.col-8 {
+	float: left;
+	width: 60%;
+	margin-left: 50px;
+}
+
+.margin_b {
+	margin-bottom: 7.5px;
+}
+
+.clear {
+	clear: both;
+}
+
+h1 {
+	color: darkred;
+	font-size: 20px;
+	margin-bottom: 30px;
+}
+
+.register-form {
+	width: 100%;
+	max-width: 400px;
+	margin: 20px auto;
+	background-color: #ffffff;
+	padding: 15px;
+	border: 2px dotted #cccccc;
+	border-radius: 10px;
+}
+
+.input-box {
+	margin-bottom: 10px;
+}
+
+.input-box input[type='text'], .input-box input[type='password'],
+	.input-box input[type='date'] {
+	padding: 7.5px 15px;
+	width: 90%;
+	border: 1px solid #cccccc;
+	outline: none;
+	font-size: 16px;
+	display: inline-block;
+	height: 40px;
+	color: #666666;
+}
+
+.input-box select {
+	padding: 7.5px 15px;
+	width: 100%;
+	border: 1px solid #cccccc;
+	outline: none;
+	font-size: 16px;
+	display: inline-block;
+	height: 40px;
+	color: #666666;
+}
+
+.input-box option {
+	font-size: 16px;
+}
+
+.input-box input[type='checkbox'] {
+	height: 1.5em;
+	width: 1.5em;
+	vertical-align: middle;
+	line-height: 2em;
+}
+
+.input-box textarea {
+	padding: 7.5px 15px;
+	width: 100%;
+	border: 1px solid #cccccc;
+	outline: none;
+	font-size: 16px;
+	min-height: 120px;
+	color: #666666;
+}
+
+.btn-box {
+	text-align: right;
+	margin-top: 30px;
+}
+
+.btn-box button {
+	padding: 7.5px 15px;
+	border-radius: 2px;
+	background-color: darkred;
+	color: #ffffff;
+	border: none;
+	outline: none;
+}
+
+.checkbox {
+	margin-left: 50px;
+}
+</style>
+<body>
+	<main>
+		<h2 style="text-align: center;">order</h2>
+		
+		
+		
+		
+		<form th:action="@{/orderadmin/form/update}" th:object="${update}"
+			method="post"
+			style="border: 2px outset #0a0000; box-shadow: 1px 1px 1px 1px;">
+			<input th:field="${order.id}" type="hidden">
+			<div class="btnt-box" style="margin: 5px 5px 5px 5px;">
+				<input  type="button" value="Back" onclick="clearFilter()" style="padding: 7.5px 15px;
+	border-radius: 2px;
+	background-color: darkred;
+	color: #ffffff;
+	border: none;
+	outline: none;"/>
+			</div>
+			<h1 style="margin: 5px 5px 5px 5px;">Information order</h1>
+						<tr  th:object="${z}" style="height: 50px;" class="bang">
+						<div class="input-box">	
+							<div class="col-6" >
+                                <label >Username</label>
+                                <br>
+                                <input readonly th:field="${order.Account.userName}" type="text" placeholder="Username"/>
+                        	</div>
+                        	<div class="col-6">
+                                <label >Create date</label>
+                                <br>
+                                <input readonly th:value="${order.createDate}" type="date" name="createDate" placeholder="Create date"/>
+                        	</div>
+                        	<div class="col-6" >
+                                <label >Address</label>
+                                <br>
+                                <input readonly th:field="${order.address}" type="text" placeholder="Address"/>
+                        	</div>
+                        	<!-- <div class="col-6">
+                                <label >Status</label>
+                                <br>
+                                <input readonly th:field="${order.Status}" type="text" placeholder="Status"/>
+                        	</div> -->
+                        	<div class="col-6" >
+                                <label >Note</label>
+                                <br>
+                                <input readonly th:field="${order.Note}" type="text" placeholder="Note"/>
+                        	</div>
+                        	<div class="col-6" >
+                                <label >Payment</label>
+                                <br>
+                                <input readonly th:field="${order.Payment}" type="text" placeholder="Payment"/>
+                        	</div>
+						
+						
+							<div  class="col-6" >
+                                <label>Status</label><br>
+                                <input type="radio" th:field="${order.Status}" th:value="DELI">Delivered
+                                <input type="radio" th:field="${order.Status}" th:value="TRANS">Transported
+                                <input type="radio" th:field="${order.Status}" th:value="UNPACK">Unpacked                          
+                            </div></tr>
+					</div>
+			<!-- <div class="input-box">
+				<div class="col-8b">
+					<label>Status:</label> <br> <select>
+						<option >Ă„â€˜ĂƒÂ£ giao</option>
+						<option >chĂ†Â°a giao</option>
+					</select>
+				</div></div> -->
+			<br><br><br><br>
+				<table style="width: 95%; margin-right:25px; margin-left:25px; margin-top:120px; " class="bang">
+			<tr style="background-color: darkred; color: white;" class="bang">
+				<th class="bang">Product's Name</th>
+				<th class="bang">Quantity</th>
+				<th class="bang">Price</th>
+			</tr>
+			<tbody>
+				<tr th:each="l : ${listDetailById}" style="height: 50px;" class="bang">
+					<td class="bang" th:text="${l.product.name}" ></td>
+					<td class="bang" th:text="${l.quantity}" ></td>
+					<td class="bang" th:text="${l.price}" ></td>
+				</tr>
+			</tbody>
+		</table>
+			<br><br>
+			<table style="width: 95%;margin-right:25px; margin-left:25px; " class="bang">
+			<tr style="background-color: darkred; color: white;" class="bang">
+				<th class="bang">UserName</th>
+				<th class="bang">Fullname</th>
+				<th class="bang">PhoneNumber</th>
+				<th class="bang">Address</th>
+				<th class="bang">CreateDate</th>
+				<th class="bang">Payment</th>
+				<th class="bang">Status</th>
+				<th class="bang">Note</th>
+			</tr>
+
+			<tbody>
+				<tr  th:object="${z}" style="height: 50px;" class="bang">
+					<td class="bang" th:text="${order.Account.userName}" ></td>
+					<td class="bang" th:text="${order.Account.fullName}"> </td>
+					<td class="bang" th:text="${order.Account.phone}" ></td>
+					<td class="bang" th:text="${order.address}" ></td>
+					<td class="bang" th:text="${order.createDate}" ></td>
+					<td class="bang" th:text="${order.Payment}" ></td>
+					<td class="bang" th:text="${order.Status}"  ></td>
+					<td class="bang" th:text="${order.Note}" ></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+			<div class="btn-box" style="text-align: center; margin-bottom: 5px;">
+				<button type="submit">Update</button>
+				
+			</div>
+			
+		</form>
+		
+		<script type="text/javascript">
+		function clearFilter() {
+			window.location = '/orderadmin/table'
+		}
+		</script>
+
+	</main>
+</body>
+</html>

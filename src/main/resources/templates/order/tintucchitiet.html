@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<body>
+	<main>
+		<div class="container">
+			<article th:object="${tin}">
+
+				<center>
+					<h2 style="color: red">[[*{Title}]]</h2>
+				</center>
+				<!-- gán biến title vô đây -->
+				<center>
+					<img th:src="@{|/assets/images/*{image}|}" width="500" height="450">
+				</center>
+				<!-- gán hình vào đây -->
+				<h4>
+					<p th:text="*{noiDung}"></p>
+				</h4>
+				<!-- gán nội dung ở đây -->
+
+				<p>[[*{#dates.format(createDate, 'dd-MM-yyyy')}]]</p>
+				<br> <br>
+				<h2 style="color: red">
+					<center>Một số clip tin tức
+				</h2>
+				</center>
+				<div>
+					<div style="padding-top: 15px">
+						<
+						<iframe width="200" height="160"
+							src="https://www.youtube.com/embed/A10gtGqXnVc"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+						<iframe width="200" height="160"
+							src="https://www.youtube.com/embed/QjGCI9rhRDU"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+						<iframe width="200" height="160"
+							src="https://www.youtube.com/embed/9sei6jxRaQw"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+						<iframe width="200" height="160"
+							src="https://www.youtube.com/embed/WcAJRwaA8ok"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+
+					</div>
+				</div>
+			</article>
+			<aside>
+				<div id="left">
+					<div class="menu_left">
+						<h3>Những tin liên quan</h3>
+						<ul>
+							<img align="left" height="60" width="60"
+								src="/assets/images/suadac.jpg" />
+							<li><a href="">Sữa đặc là gì? Có mấy loại? Nên pha loại
+									nào?</a></li>
+							<img align="left" height="60" width="60"
+								src="/assets/images/trasua.jpg" />
+							<li>
+							<li><a href="">Công thức pha trà sữa ngon như quán làm.</a></li>
+							<img align="left" height="60" width="60"
+								src="/assets/images/tradao.jpg" />
+							<li><a href="">Cách pha trà đào đơn giản, dễ làm.</a></li>
+							<img align="left" height="60" width="60"
+								src="/assets/images/tranchau.jpg" />
+							<li><a href="">3 cách làm trân châu từ bột năng, bột
+									nếp, bột mì thơm ngon, dai mềm.</a></li>
+							<img align="left" height="60" width="60"
+								src="/assets/images/trachanhday.jpg" />
+							<li><a href="">Chanh dây: Dinh dưỡng, lợi ích sức khỏe
+									và cách ăn.</a></li>
+
+						</ul>
+					</div>
+
+					<div class="menus">
+						<h3>Học pha chế</h3>
+						<ul style="list-style-type: disc">
+							<li><a href="">9 công thức pha chế đồ uống Hàn Quốc ai
+									cũng có thể làm tại nhà</a></li>
+							<li><a href="">Tổng Hợp Những Cách Làm Nước Rau Má “Thần
+									Thánh”</a></li>
+							<li><a href="">Đơn Giản Với Cách Làm Trà Sữa Matcha Thơm
+									Ngon</a></li>
+							<li><a href="">Cách Làm Sữa Chua – Ngon Dẻo Mịn – Dễ Làm
+									– Tại Nhà</a></li>
+							<li><a href="">cách pha chế Soda Ý tại nhà</a></li>
+						</ul>
+					</div>
+
+
+					<br>
+					<p>
+					<h4>
+						<mark>
+							Bạn quan tâm chủ đề gì?
+							</p>
+					</h4>
+					</mark>
+					<ul class="Dmenu">
+						<li><a href="">4 điều quan trọng cần nhớ khi mua nguyên
+								liệu pha chế</a></li>
+						<li><a href="">Những tiêu chí cần cân nhắc khi học pha
+								chế để mở quán</a></li>
+						<li><a href="">Dạy Pha Chế Á Âu</a></li>
+						<li><a href="">Những dụng cụ cần có khi pha chế</a></li>
+						<li><a href="">Kiến thức về nguyên liệu, dinh dưỡng trong
+								pha chế.</a></li>
+						<li><a href="">Bảo quản nguyên liệu pha chế như thế nào?</a></li>
+					</ul>
+				</div>
+		</div>
+
+		</aside>
+
+
+
+
+	</main>
+</body>
+</html>

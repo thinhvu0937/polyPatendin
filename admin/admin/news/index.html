@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	
+<style>
+	.bang {
+	  border: 1px solid black;
+	  border-collapse: collapse;
+	}
+
+.col-6{
+    float: left;
+    width: 45%;
+	margin-left: 50px;
+}
+.col-4{
+    float: left;
+    width: 30%;
+    margin-left: 50px;
+}
+.col-5{
+    float: left;
+    width: 20%;
+    margin-left: 50px;
+    height: 70px;
+}
+.col-8{
+    float: left;
+    width: 60%;
+    margin-left: 50px;
+}
+.col-12{
+    float: left;
+    width: 100%;
+    margin-left: 50px;
+}
+.margin_b{
+    margin-bottom: 7.5px;
+}
+.clear{
+    clear: both;
+}
+h1{
+    color: darkred;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.register-form{
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 15px;
+    border: 2px dotted #cccccc;
+    border-radius: 10px;
+}
+
+.input-box{
+    margin-bottom: 10px;
+}
+.input-box input[type='text'],
+.input-box input[type='password'],
+.input-box input[type='date']{
+    padding: 7.5px 15px;
+    width: 90%;
+    border: 1px solid #cccccc;
+    outline: none;
+    font-size: 16px;
+    display: inline-block;
+    height: 40px;
+    color: #666666;
+}
+.input-box select{
+    padding: 7.5px 15px;
+    width: 100%;
+    border: 1px solid #cccccc;
+    outline: none;
+    font-size: 16px;
+    display: inline-block;
+    height: 40px;
+    color: #666666;
+}
+.input-box option{
+    font-size: 16px;
+}
+.input-box input[type='checkbox']{
+    height: 1.5em;
+    width: 1.5em;
+    vertical-align: middle;
+    line-height: 2em;
+}
+.input-box textarea{
+    padding: 7.5px 15px;
+    width: 100%;
+    border: 1px solid #cccccc;
+    outline: none;
+    font-size: 16px;
+    min-height: 120px;
+    color: #666666;
+}
+.btn-box{
+    text-align: right;
+    margin-top: 30px;
+}
+.btn-box button{
+    padding: 7.5px 15px;
+    border-radius: 2px;
+    background-color: darkred;
+    color: #ffffff;
+    border: none;
+    outline: none;
+}
+.checkbox{
+margin-left: 50px;
+}
+</style>
+<body>
+	<main>
+	
+	<h2 style="text-align: center;">NEWS</h2>
+
+
+<!--form nháº­p liá»‡u-->
+	
+		             <form action="" method="post" style="border: 2px outset #0a0000;   box-shadow: 1px 1px 1px 1px; ">
+                        <h1 style="margin:5px 5px 5px 5px;">Information news</h1>
+                        <div class="input-box">
+                            <div class="col-5">
+                                <label>Image:</label>
+                                <br>
+                                <input type="file" placeholder="Image" style="height: 100px;"/>
+                            </div>
+                            <div class="col-4">
+                                <label></label>
+                                <br>
+                                <input type="date" />
+                            </div>                            
+                            <div class="col-8">
+                                <label >Title:</label>
+                                <br>
+                                <input type="text"/>
+                            </div>
+                            <div class="clear"></div>
+                        	</div>
+                            <div class="input-box">
+                        </div>
+                        <div class="input-box">
+                            <div class="col-12">
+                                <label>Content:</label>
+                                <br>
+                                <textarea style="width: 900px;"></textarea>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        
+                       
+                        
+                        <div class="btn-box" style="text-align: center; margin-bottom: 5px;">
+                            <button type="submit">
+                                Add
+                            </button>
+                        </div>
+                    </form>
+                    
+<br><br>               
+ 
+     <div class="row" style="float: right;padding:0 8px;">
+     <li><input placeholder="Enter Keyword" type="text"> <i class="fas fa-search"></i></li>
+     </div>
+     
+	<div class="row" style="float: right;">
+        <div class="col-sm-5">
+            <select name="" id="">
+                 <option value="">Time</option>
+                 <option value="">Latest</option>
+                 <option value="">Oldest</option>
+            </select>
+       </div>
+    </div><br><br> 
+<table style="width:100%" class="bang">
+  <tr style="background-color: darkred; color: white; " class="bang">
+    <th class="bang">Title</th>
+    <th class="bang">Image</th>
+    <th style="width:40%" class="bang">Content</th>
+    <th class="bang">Createdate</th>
+    <th class="bang">Add</th>
+    <th class="bang">Delete</th>
+    <th class="bang">Edit</th>
+  </tr>
+  <tr style="height: 50px; " class="bang">
+    <th class="bang"></th>
+    <th class="bang"></th>
+    <th class="bang"></th>
+    <th class="bang"></th>
+    <th style="width:5%" class="bang"><button style="background-color: white;color: black;  border: 2px solid darkred; width: 40px; ">Add</button></th>
+    <th style="width:5%" class="bang"><button style="background-color: white;color: black;  border: 2px solid darkred; width: 40px; ">Delete</button></th>
+    <th style="width:5%" class="bang">
+		<button style="background-color: white;color: black;  border: 2px solid darkred; width: 40px; ">Edit</button>
+	</th>
+  </tr>
+  
+</table>
+	</main>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+th:replace="~{/layout/indexadmin :: admin(~{::main})}">
+
+<style>
+.bang {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: right;
+}
+
+.col-6 {
+	float: left;
+	width: 45%;
+	margin-left: 50px;
+}
+
+.col-4 {
+	float: left;
+	width: 30%;
+	margin-left: 50px;
+}
+
+.col-8 {
+	float: left;
+	width: 60%;
+	margin-left: 50px;
+}
+
+.col-12 {
+	float: left;
+	width: 100%;
+	margin-left: 50px;
+}
+
+.margin_b {
+	margin-bottom: 7.5px;
+}
+
+.clear {
+	clear: both;
+}
+
+h1 {
+	color: darkred;
+	font-size: 20px;
+	margin-bottom: 30px;
+}
+
+.register-form {
+	width: 100%;
+	max-width: 400px;
+	margin: 20px auto;
+	background-color: #ffffff;
+	padding: 15px;
+	border: 2px dotted #cccccc;
+	border-radius: 10px;
+}
+
+.input-box {
+	margin-bottom: 10px;
+}
+
+.input-box input[type='text'], .input-box input[type='password'],
+	.input-box input[type='date'] {
+	padding: 7.5px 15px;
+	width: 90%;
+	border: 1px solid #cccccc;
+	outline: none;
+	font-size: 16px;
+	display: inline-block;
+	height: 40px;
+	color: #666666;
+}
+
+.input-box select {
+	padding: 7.5px 15px;
+	width: 100%;
+	border: 1px solid #cccccc;
+	outline: none;
+	font-size: 16px;
+	display: inline-block;
+	height: 40px;
+	color: #666666;
+}
+
+.input-box option {
+	font-size: 16px;
+}
+
+.input-box input[type='checkbox'] {
+	height: 1.5em;
+	width: 1.5em;
+	vertical-align: middle;
+	line-height: 2em;
+}
+
+.input-box textarea {
+	padding: 7.5px 15px;
+	width: 100%;
+	border: 1px solid #cccccc;
+	outline: none;
+	font-size: 16px;
+	min-height: 120px;
+	color: #666666;
+}
+
+.btn-box {
+	text-align: right;
+	margin-top: 30px;
+}
+
+.btn-box button {
+	padding: 7.5px 15px;
+	border-radius: 2px;
+	background-color: darkred;
+	color: #ffffff;
+	border: none;
+	outline: none;
+}
+</style>
+<body ng-app="myapp">
+	<main ng-controller="lienhe-ctrl">
+
+		<div class="row" style="float: right; padding: 0 8px;">
+			<form th:action="@{/contact/table}" >
+				<li><input placeholder="Enter Keyword" th:value="${param.keyword}" name="keyword" type="text" required> <i
+				class="fas fa-search"></i>
+				<i style=" color: darkred;" class="fa fa-eraser" onclick="clearFilter()"/></i></li>		
+			</form>
+				</div>
+		
+		<br><br>
+		<br>
+		<!--báº£ng hiá»ƒn thá»‹-->
+		<table  class="bang">
+			<tr style="background-color: darkred; color: white;" class="bang">
+				<th class="bang" style="width: 20%;">Fullname</th>
+				<th class="bang" style="width: 20%;">PhoneNumber</th>
+				<th class="bang" style="width: 20%;">Email</th>
+				<th class="bang" style="width: 25%;">Content</th>
+				<th class="bang" style="width: 5%;">Delete</th>
+				<th class="bang" style="width: 5%;">Edit</th>
+			</tr>
+			<tbody>
+				<tr th:each="t : ${t}" style="height: 50px;" class="bang">
+					<td style="width: 20%;" class="bang" th:text="${t.name}"></td>
+					<td style="width: 20%;" class="bang" th:text="${t.sDT}"></td>
+					<td style="width: 20%;" class="bang" th:text="${t.email}"></td>
+					<td style="width: 25%;text-align: center; " class="bang" th:text="${t.noiDung}"></td>
+
+					<td class="bang" style="width: 5%;text-align: center;"><a
+						th:href="@{|/contact/delete/${t.name}|}"
+						style=" color: darkred;"><i class="fa fa-trash"></i></a>
+						
+					</td>
+					<td class="bang" style="width: 5%;text-align: center;">
+					<a th:href="@{|/contact/edit/${t.name}|}"
+						style=" color: darkred;"><i class="fa fa-pencil"></i></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+			<script type="text/javascript">
+		function clearFilter() {
+			window.location = '/contact/table'
+		}
+		</script>
+	</main>
+</body>
+</html>

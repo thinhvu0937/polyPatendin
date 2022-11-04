@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ th:fragment="dynamic(main)">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<link rel="stylesheet" href="/assets/css/shopping-cart-app.css"/>
+<link rel="stylesheet" href="/assets/css/styleindex.css"/>
+<script src="https://kit.fontawesome.com/1147679ae7.js" crossorigin="anonymous"></script>
+<script src="https://uhchat.net/code.php?f=3b8699"></script>
+
+<style>
+.giuseart-mobile-contact-bar{
+display:none 
+}
+.giuseart-pc-contact-bar{
+left: 30px;
+bottom: 30px;
+position: fixed;
+z-index: 998;
+margin-bottom:0
+}
+.giuseart-pc-contact-bar li{
+width: 44px;
+height: 46px;
+overflow: hidden;
+ margin-bottom: 0;
+list-style: none;
+}
+.giuseart-pc-contact-bar li.facebook{
+margin-bottom: 8px;
+background: url(https://giuseart.com/wp-content/uploads/2020/03/fb.png);
+background-repeat: no-repeat;
+}
+.giuseart-pc-contact-bar li.zalo{
+background: url(https://giuseart.com/wp-content/uploads/2020/03/zl.png);    background-repeat: no-repeat;
+}
+.giuseart-pc-contact-bar li a{
+display: block;
+width: 44px;
+height: 44px;
+}
+ 
+@media only screen and (max-width: 499px) {
+.giuseart-pc-contact-bar{
+display:none
+}
+.giuseart-mobile-contact-bar{
+left: 10px;
+bottom: 10px;
+position: fixed;
+z-index: 998;
+margin-bottom:0;
+display:block !Important
+}
+.giuseart-mobile-contact-bar li{
+display:inline-block;
+float:left;
+margin-right:7px;
+list-style:none
+}
+.giuseart-mobile-contact-bar li.facebook{
+margin-bottom: 8px;
+background: url(https://giuseart.com/wp-content/uploads/2020/03/fb.png);
+background-repeat: no-repeat;
+}
+.giuseart-mobile-contact-bar li.zalo{
+background: url(https://giuseart.com/wp-content/uploads/2020/03/zl.png);    background-repeat: no-repeat;
+}
+.giuseart-mobile-contact-bar li a{
+display: block;
+width: 44px;
+height: 44px;}
+}
+ 
+</style>
+<ul class="giuseart-pc-contact-bar">
+<li class="facebook">
+<a href="https://m.me/nhox.soc2" target="_blank" rel="nofollow"></a>
+</li>
+<li class="zalo">
+<a href="https://zalo.me/0929782855" target="_blank" rel="nofollow"></a>
+</li>
+</ul>
+ 
+<ul class="giuseart-mobile-contact-bar">
+<li class="facebook">
+<a href="https://m.me/nhox.soc2" target="_blank" rel="nofollow"></a>
+</li>
+<li class="zalo">
+<a href="https://zalo.me/0929782855" target="_blank" rel="nofollow"></a>
+</li>
+</ul>
+
+</head>
+<body  ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
+	<nav class="row">
+		<div th:replace="/layout/_menu.html"></div>
+	</nav>
+	<br><br><br><br><br><br><br>
+
+
+		<aside  >
+			<div th:replace="${main}"></div>
+		</aside>
+	
+	<footer style="margin-top: 0px;">
+    <div class="container">
+        <div class="footer-content row">
+            <div class="footer-content-item">
+                <h3>THÔNG TIN</h3>
+                <p>CÔNG TY TNHH FPOLY BARTENDING</p>
+                <p>72 QUANG TRUNG - GÒ VẤP</p>
+                <p>18002091</p>
+                <p>support@abc.vn</p>
+                <p>Mst: 0401223344</p>
+            </div>
+            <div class="footer-content-item">
+                <h3>LIÊN HỆ</h3>
+                <p>Giới thiệu</p>
+                <p>Liên hệ với chúng tôi</p>
+                <p>Tin tức</p>
+                <p>Hệ thống cửa hàng</p>
+                <p>Trợ giúp</p>
+            </div>
+            <div class="footer-content-item">
+                <h3>HỖ TRỢ KHÁCH HÀNG </h3>
+                <p>Hỏi đáp                </p>
+                <p>Đăng ký tài khoản</p>
+                <p>Chính sách giao hàng </p>
+                <p>Hệ thống cửa hàng</p>
+                <p>Chính sách đổi trả hoàn tiền</p>
+            </div>
+        </div>
+        <div class="footer-content-social">
+            <i class="fab fa-facebook-square"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-linkedin-in"></i>
+        </div>
+        <div class="footer-copyright">
+            FPT Polytechnic &copy; 2021.All rights reserved.
+        </div>
+        <div class="footer-img">
+            <img src="/assets/images/Dang-ky-bo-cong-thuong.png" alt="">
+        </div>
+    </div>
+</footer>
+	
+	<script src="/assets/js/shopping-cart-app.js"></script>
+
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/indexadmin :: admin(~{::main})}">
+    <style>
+    .bang {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    
+    .col-6 {
+        float: left;
+        width: 45%;
+        margin-left: 50px;
+    }
+    
+    .col-4 {
+        float: left;
+        width: 30%;
+        margin-left: 50px;
+    }
+    
+    .col-5 {
+        float: left;
+        width: 20%;
+        margin-left: 50px;
+        height: 70px;
+    }
+    
+    .col-8 {
+        float: left;
+        width: 60%;
+        margin-left: 50px;
+    }
+    
+    .margin_b {
+        margin-bottom: 7.5px;
+    }
+    
+    .clear {
+        clear: both;
+    }
+    
+    h1 {
+        color: darkred;
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .register-form {
+        width: 100%;
+        max-width: 400px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        padding: 15px;
+        border: 2px dotted #cccccc;
+        border-radius: 10px;
+    }
+    
+    .input-box {
+        margin-bottom: 10px;
+    }
+    
+    .input-box input[type='text'], .input-box input[type='password'],
+        .input-box input[type='date'] {
+        padding: 7.5px 15px;
+        width: 90%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        display: inline-block;
+        height: 40px;
+        color: #666666;
+    }
+    
+    .input-box select {
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        display: inline-block;
+        height: 40px;
+        color: #666666;
+    }
+    
+    .input-box option {
+        font-size: 16px;
+    }
+    
+    .input-box input[type='checkbox'] {
+        height: 1.5em;
+        width: 1.5em;
+        vertical-align: middle;
+        line-height: 2em;
+    }
+    
+    .input-box textarea {
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        min-height: 120px;
+        color: #666666;
+    }
+    
+    .btn-box {
+        text-align: right;
+        margin-top: 30px;
+    }
+    
+    .btn-box button {
+        padding: 7.5px 15px;
+        border-radius: 2px;
+        background-color: darkred;
+        color: #ffffff;
+        border: none;
+        outline: none;
+    }
+    
+    .checkbox {
+        margin-left: 50px;
+    }
+    </style>
+<body>
+    <main>
+
+        <h2 style="text-align: center;">RRODUCT</h2>
+
+        <form th:action="@{/product/index/saves}" th:object="${prod}" method="post"
+            style="border: 2px outset #0a0000;   box-shadow: 1px 1px 1px 1px; ">
+            <h1 style="margin:5px 5px 5px 5px;">Information product</h1>
+            <div class="input-box">
+                <div class="col-5">
+                    <div>Image</div>
+                    <input th:field="*{image}" type="file" class="form-control" id="image"
+                        onchange="angular.element(this).scope().imageChanged(this.files)">
+                </div>
+
+                <div class="col-6">
+                    <label>Name:</label>
+                    <br>
+                    <input th:field="*{name}" type="text" placeholder="ProductName:" />
+                </div>
+                <div class="col-6">
+                    <label>Price:</label>
+                    <br>
+                    <input required th:field="*{price}" type="text" placeholder="Price:" />
+                </div>
+                <div class="col-6">
+                    <label>Discount:</label>
+                    <br>
+                    <input th:field="*{discount}" type="text" placeholder="Discount:" />
+                </div>
+                <div class="col-6">
+                    <label>Date:</label> 
+                    <br> 
+                    <input th:value="*{createdate}" required type="date" />
+                </div>
+                <div class="col-6">
+					<label>Available:</label> <br> <input th:field="*{available}" required th:value="1"
+						type="radio">Yes <input th:field="*{available}" th:value="0"
+						type="radio">No
+				</div>
+                <div class="col-6">
+					<label>Category:</label> <br> 
+					<select th:field="*{category.id}">
+						<option th:each="c : ${category}" th:value="${c.id}" th:text="${c.name}"></option>
+					</select>
+				</div>
+                <div class="input-box">
+                    <div class="clear"></div>
+                </div>
+
+                <div class="btn-box" style="text-align: center; margin-bottom: 5px;">
+                    <button >
+                        Save
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <br> <br>
+		<table style="width: 100%" class="bang">
+			<tr style="background-color: darkred; color: white;" class="bang">
+				<th class="bang">Photo</th>
+                <th class="bang">ID</th>
+				<th class="bang">Name</th>
+				<th class="bang">Price</th>
+                <th class="bang">Discount</th>
+				<th class="bang">Date</th>
+				<th class="bang">Available</th>
+				<th class="bang">Category</th>
+				<th class="bang">Edit</th>
+				<th class="bang">Delete</th>
+			</tr>
+
+			<tbody>
+				<tr th:each="p : ${p}" style="height: 50px;" class="bang">
+					<td class="bang" th:text="${p.image}"></td>
+                    <td class="bang" th:text="${p.id}"></td>
+					<td class="bang" th:text="${p.name}"></td>
+					<td class="bang" th:text="${p.price}"></td>
+                    <td class="bang" th:text="${p.discount}">%</td>
+                    <td class="bang" th:text="${p.createdate}"></td>
+					<td class="bang" th:text="${p.available?'Yes':'No'}"></td>
+                    <td class="bang" th:text="${p.category.name}"></td>
+                    
+
+					<td style="width: 5%"><a
+						th:href="@{|/product/edit/${p.id}|}"
+						style="background-color: white; color: black; border: 2px solid darkred; width: 40px;">Edit</a></td>
+					<td class="bang" style="width: 5%"><a
+						th:href="@{|/product/delete/${p.id}|}"
+						style="background-color: white; color: black; border: 2px solid darkred; width: 40px;">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+    </main>
+</body>
+
+</html>

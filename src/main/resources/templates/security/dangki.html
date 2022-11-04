@@ -1,0 +1,61 @@
+<div xmlns:th="http://www.thymeleaf.org"
+th:replace="~{/layout/index :: dynamic(~{::main})}">
+<main>
+<div style=" width:100% ;">
+	<form th:action="@{/security/dangki/save}" th:object="${acc}" method="post" style=" width: 650px; margin:0px 0px 0px 340px;">
+        <div class="panel panel-primary">
+            <div class="panel-heading" style="background-color: rgb(172, 0, 30);">CREATE AN ACCOUNT</div>
+           
+            <div class="panel-body">
+                <div class="form-group">
+                    <div>User Name:</div>
+                    <input th:field="*{userName}" class="form-control" required pattern="[a-zA-Z0-9\s\p{L}]+" title="Vui lòng không nhập ký tự đặc biệt" >
+                </div>
+            <div class="form-group">
+                    <div>Password:</div>
+                    <input th:field="*{passWord}" class="form-control" required>
+            </div>
+             <div class="form-group">
+                    <div>Full Name:</div>
+                    <input th:field="*{fullName}" class="form-control"  required pattern="[a-zA-Z\s\p{L}]+"> 
+            </div>
+            
+                <div class="form-group">
+                    <div>Email:</div>
+                    <input th:field="*{email}" type="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <div>Date:</div>
+                    <input th:value="*{birthDay}" name="birthDay" type="date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <div>Address:</div>
+                    <input th:field="*{address}" name="Address" type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <div>Phone:</div>
+                    <input th:field="*{phone}" name="Phone" type="text" class="form-control" required  pattern="(\+84|0)\d{9}" title="Vui lòng nhập đúng định dạng số điện thoại 10 chữ số">
+                </div>
+                <div class="form-group col-sm-6">
+                        <div>Image:</div>
+                        <input th:field="*{photo}"  type="file" class="form-control" id="image"
+                        onchange="angular.element(this).scope().imageChanged(this.files)" required>
+                    </div>
+                <div class="col-6">
+					<label>Gender:</label> <br> <input th:field="*{sex}" th:value="1"
+						type="radio">Male <input th:field="*{sex}" th:value="0"
+						type="radio">Female
+				</div>
+                
+            </div>
+            <div class="panel-footer text-right" >
+                <i class="pull-left text-danger" th:text="${message}"></i>
+                <button class="btn btn-success">SIGN UP</button>
+            </div>
+            
+        </div>
+    </form>
+    </div>
+</main>
+</div>
+
